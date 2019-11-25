@@ -1,3 +1,15 @@
 923f53,127.0.0.1,GET,http://127.0.0.1:8000/,1574689969,,404
 d4b2a8,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1574689971,27fd64,404
 27fd64,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1574689971,,404
+de237c,127.0.0.1,GET,http://127.0.0.1:8000/,1574690836,,404
+470265,127.0.0.1,GET,http://localhost:8000/,1574690849,,404
+7fa73b,127.0.0.1,GET,http://localhost:8000/wild,1574694105,,200
+c84607,127.0.0.1,GET,http://localhost:8000/wild,1574695057,,200
+4a8bf0,127.0.0.1,GET,http://localhost:8000/wild,1574697137,9d53c7,500
+9d53c7,127.0.0.1,GET,http://localhost:8000/wild,1574697137,,500
+017a0d,127.0.0.1,GET,http://localhost:8000/wild,1574697592,5dca43,500
+5dca43,127.0.0.1,GET,http://localhost:8000/wild,1574697592,,500
+98c6f6,127.0.0.1,GET,http://localhost:8000/wild,1574697611,e5ca54,500
+e5ca54,127.0.0.1,GET,http://localhost:8000/wild,1574697611,,500
+c9a6a3,127.0.0.1,GET,http://localhost:8000/wild,1574697714,,200
+f0cfcb,127.0.0.1,GET,http://localhost:8000/wild,1574697752,,200

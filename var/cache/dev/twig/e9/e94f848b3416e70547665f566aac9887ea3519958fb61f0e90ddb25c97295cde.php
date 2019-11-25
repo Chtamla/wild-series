@@ -29,6 +29,7 @@ class __TwigTemplate_3dc7335e1c36680c5a70c1ab6f3500ab6e437790bb9ed8a02f7c954ccdb
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
+            'titre' => [$this, 'block_titre'],
             'body' => [$this, 'block_body'],
             'javascripts' => [$this, 'block_javascripts'],
         ];
@@ -60,11 +61,14 @@ class __TwigTemplate_3dc7335e1c36680c5a70c1ab6f3500ab6e437790bb9ed8a02f7c954ccdb
     <body>
         ";
         // line 9
-        $this->displayBlock('body', $context, $blocks);
+        $this->displayBlock('titre', $context, $blocks);
         // line 10
         echo "        ";
-        $this->displayBlock('javascripts', $context, $blocks);
+        $this->displayBlock('body', $context, $blocks);
         // line 11
+        echo "        ";
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 12
         echo "    </body>
 </html>
 ";
@@ -86,7 +90,7 @@ class __TwigTemplate_3dc7335e1c36680c5a70c1ab6f3500ab6e437790bb9ed8a02f7c954ccdb
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Welcome!";
+        echo "Wild-series!";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -114,6 +118,24 @@ class __TwigTemplate_3dc7335e1c36680c5a70c1ab6f3500ab6e437790bb9ed8a02f7c954ccdb
     }
 
     // line 9
+    public function block_titre($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "titre"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "titre"));
+
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 10
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -131,7 +153,7 @@ class __TwigTemplate_3dc7335e1c36680c5a70c1ab6f3500ab6e437790bb9ed8a02f7c954ccdb
 
     }
 
-    // line 10
+    // line 11
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -156,7 +178,7 @@ class __TwigTemplate_3dc7335e1c36680c5a70c1ab6f3500ab6e437790bb9ed8a02f7c954ccdb
 
     public function getDebugInfo()
     {
-        return array (  135 => 10,  117 => 9,  99 => 6,  80 => 5,  68 => 11,  65 => 10,  63 => 9,  59 => 7,  57 => 6,  53 => 5,  47 => 1,);
+        return array (  157 => 11,  139 => 10,  121 => 9,  103 => 6,  84 => 5,  72 => 12,  69 => 11,  66 => 10,  64 => 9,  60 => 7,  58 => 6,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -165,10 +187,11 @@ class __TwigTemplate_3dc7335e1c36680c5a70c1ab6f3500ab6e437790bb9ed8a02f7c954ccdb
 <html>
     <head>
         <meta charset=\"UTF-8\">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Wild-series!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        {% block titre %}{% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
