@@ -1,7 +1,3 @@
 wild_show_index:
     path: /wild/
     controller: App\Controller\WildController::index
-
-wild_show_home:
-    path: /default/
-    controller: App\Controller\Default::home
