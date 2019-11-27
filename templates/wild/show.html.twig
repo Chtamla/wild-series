@@ -1,0 +1,15 @@
+{% extends '/base.html.twig' %}
+
+{% block titre %}
+<h2> Mes séries en cours</h2>
+{% endblock %}
+
+{% block header %}
+    {% include 'navbar.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <div class="col-12">
+        <p class="h2">{{slug}}</p>
+    </div>
+{% endblock %}

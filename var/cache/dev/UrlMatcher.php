@@ -14,10 +14,6 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\DefaultController::index'], null, null, null, false, false, null]],
-        '/wild' => [
-            [['_route' => 'wild_index', '_controller' => 'App\\Controller\\WildController::index'], null, null, null, false, false, null],
-            [['_route' => 'wild_show_index', '_controller' => 'App\\Controller\\WildController::index'], null, null, null, true, false, null],
-        ],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -36,6 +32,11 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/wild(?'
+                    .'|(?:/(\\d+))?(*:188)'
+                    .'|/show(?:/([a-z0-9-]+))?(*:219)'
+                    .'|(*:227)'
+                .')'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -45,8 +46,11 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        188 => [[['_route' => 'wild_index', 'page' => '1', '_controller' => 'App\\Controller\\WildController::index'], ['page'], null, null, false, true, null]],
+        219 => [[['_route' => 'wild_show', 'slug' => 'Aucune série sélectionnée, veuillez choisir une série', '_controller' => 'App\\Controller\\WildController::show'], ['slug'], null, null, false, true, null]],
+        227 => [
+            [['_route' => 'wild_show_index', '_controller' => 'App\\Controller\\WildController::index'], [], null, null, true, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

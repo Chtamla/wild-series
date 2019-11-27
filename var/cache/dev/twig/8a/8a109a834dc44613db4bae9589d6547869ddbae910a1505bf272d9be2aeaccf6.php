@@ -46,7 +46,10 @@ class __TwigTemplate_2373c1218fbf5d2ed99d3a06e288e202fa8c8685c97bfb9b8c521d5ba5b
         <a href=\"#\">Mon profil</a>
         <a href=\"#\">Recherche</a>
         <a href=\"/wild\">Mes séries favorites</a>
-        <a href=\"#\">Mes séries en cours</a>
+        <a href=\"";
+        // line 7
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_show");
+        echo "\">Mes séries en cours</a>
         <a href=\"#\">Mes séries pour plus tard</a>
     </div>
 </div>
@@ -64,9 +67,14 @@ class __TwigTemplate_2373c1218fbf5d2ed99d3a06e288e202fa8c8685c97bfb9b8c521d5ba5b
         return "navbar.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  43 => 1,);
+        return array (  51 => 7,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -77,7 +85,7 @@ class __TwigTemplate_2373c1218fbf5d2ed99d3a06e288e202fa8c8685c97bfb9b8c521d5ba5b
         <a href=\"#\">Mon profil</a>
         <a href=\"#\">Recherche</a>
         <a href=\"/wild\">Mes séries favorites</a>
-        <a href=\"#\">Mes séries en cours</a>
+        <a href=\"{{ path(\"wild_show\") }}\">Mes séries en cours</a>
         <a href=\"#\">Mes séries pour plus tard</a>
     </div>
 </div>
