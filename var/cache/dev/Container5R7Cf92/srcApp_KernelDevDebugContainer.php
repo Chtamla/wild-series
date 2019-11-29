@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerFvexeV4;
+namespace Container5R7Cf92;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -855,7 +855,11 @@ class srcApp_KernelDevDebugContainer extends Container
         $a->setNamingStrategy(new \Doctrine\ORM\Mapping\UnderscoreNamingStrategy(0, true));
         $a->setQuoteStrategy(new \Doctrine\ORM\Mapping\DefaultQuoteStrategy());
         $a->setEntityListenerResolver(new \Doctrine\Bundle\DoctrineBundle\Mapping\ContainerEntityListenerResolver($this));
-        $a->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory(($this->privates['.service_locator.I3K77mT'] ?? ($this->privates['.service_locator.I3K77mT'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [], [])))));
+        $a->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory(new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'App\\Repository\\ProgramRepository' => ['privates', 'App\\Repository\\ProgramRepository', 'getProgramRepositoryService', false],
+        ], [
+            'App\\Repository\\ProgramRepository' => '?',
+        ])));
 
         $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create(($this->services['doctrine.dbal.default_connection'] ?? $this->getDoctrine_Dbal_DefaultConnectionService()), $a);
 
@@ -977,6 +981,9 @@ class srcApp_KernelDevDebugContainer extends Container
             return ($this->privates['data_collector.request'] ?? ($this->privates['data_collector.request'] = new \Symfony\Component\HttpKernel\DataCollector\RequestDataCollector()));
         }, 1 => 'onKernelResponse'], 0);
         $instance->addListener('kernel.request', [0 => function () {
+            return ($this->privates['debug.debug_handlers_listener'] ?? $this->getDebug_DebugHandlersListenerService());
+        }, 1 => 'configure'], 2048);
+        $instance->addListener('console.command', [0 => function () {
             return ($this->privates['debug.debug_handlers_listener'] ?? $this->getDebug_DebugHandlersListenerService());
         }, 1 => 'configure'], 2048);
         $instance->addListener('kernel.request', [0 => function () {
@@ -1757,6 +1764,23 @@ class srcApp_KernelDevDebugContainer extends Container
             'session' => '?',
             'twig' => '?',
         ]);
+    }
+
+    /**
+     * Gets the private 'App\Repository\ProgramRepository' shared autowired service.
+     *
+     * @return \App\Repository\ProgramRepository
+     */
+    protected function getProgramRepositoryService()
+    {
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/persistence/lib/Doctrine/Common/Persistence/ObjectRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/collections/lib/Doctrine/Common/Collections/Selectable.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/orm/lib/Doctrine/ORM/EntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepositoryInterface.php';
+        include_once \dirname(__DIR__, 4).'/vendor/doctrine/doctrine-bundle/Repository/ServiceEntityRepository.php';
+        include_once \dirname(__DIR__, 4).'/src/Repository/ProgramRepository.php';
+
+        return $this->privates['App\\Repository\\ProgramRepository'] = new \App\Repository\ProgramRepository(($this->services['doctrine'] ?? $this->getDoctrineService()));
     }
 
     /**
