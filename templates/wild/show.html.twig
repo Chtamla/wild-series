@@ -3,15 +3,19 @@
 {% block title %}{{ slug }}{% endblock %}
 
 {% block body %}
-
-    <div class="col-10">
-        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+<div class="container col-10">
+    <div class="col-lg-8">
         <div class="media-body">
             <h1 class="mt-0">{{ program.title }}</h1>
             <p>{{ program.summary }}</p>
             <p>Categorie : {{ program.category.name }}</p>
         </div>
     </div>
+
+    <div class="col-lg-4">
+        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+    </div>
+</div>
 
 
 {% endblock %}
