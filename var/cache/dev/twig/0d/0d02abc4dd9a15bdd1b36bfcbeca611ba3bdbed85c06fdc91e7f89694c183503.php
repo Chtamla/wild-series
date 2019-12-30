@@ -85,29 +85,33 @@ class __TwigTemplate_b327fb81debedeec83ab0894a7b6a9621053bae8884c71a2150d67a50b4
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "
-    <div class=\"col-10\">
-        <img class=\"align-self-start mr-3\" src=\"";
-        // line 8
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 8, $this->source); })()), "poster", [], "any", false, false, false, 8), "html", null, true);
-        echo "\" alt=\"";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 8, $this->source); })()), "title", [], "any", false, false, false, 8), "html", null, true);
-        echo " poster\">
+        echo "<div class=\"container col-10\">
+    <div class=\"col-lg-8\">
         <div class=\"media-body\">
             <h1 class=\"mt-0\">";
-        // line 10
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 10, $this->source); })()), "title", [], "any", false, false, false, 10), "html", null, true);
+        // line 9
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 9, $this->source); })()), "title", [], "any", false, false, false, 9), "html", null, true);
         echo "</h1>
             <p>";
-        // line 11
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 11, $this->source); })()), "summary", [], "any", false, false, false, 11), "html", null, true);
+        // line 10
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 10, $this->source); })()), "summary", [], "any", false, false, false, 10), "html", null, true);
         echo "</p>
             <p>Categorie : ";
-        // line 12
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 12, $this->source); })()), "category", [], "any", false, false, false, 12), "name", [], "any", false, false, false, 12), "html", null, true);
+        // line 11
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 11, $this->source); })()), "category", [], "any", false, false, false, 11), "name", [], "any", false, false, false, 11), "html", null, true);
         echo "</p>
         </div>
     </div>
+
+    <div class=\"col-lg-4\">
+        <img class=\"align-self-start mr-3\" src=\"";
+        // line 16
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 16, $this->source); })()), "poster", [], "any", false, false, false, 16), "html", null, true);
+        echo "\" alt=\"";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 16, $this->source); })()), "title", [], "any", false, false, false, 16), "html", null, true);
+        echo " poster\">
+    </div>
+</div>
 
 
 ";
@@ -131,7 +135,7 @@ class __TwigTemplate_b327fb81debedeec83ab0894a7b6a9621053bae8884c71a2150d67a50b4
 
     public function getDebugInfo()
     {
-        return array (  107 => 12,  103 => 11,  99 => 10,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  109 => 16,  101 => 11,  97 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -141,15 +145,19 @@ class __TwigTemplate_b327fb81debedeec83ab0894a7b6a9621053bae8884c71a2150d67a50b4
 {% block title %}{{ slug }}{% endblock %}
 
 {% block body %}
-
-    <div class=\"col-10\">
-        <img class=\"align-self-start mr-3\" src=\"{{program.poster}}\" alt=\"{{ program.title }} poster\">
+<div class=\"container col-10\">
+    <div class=\"col-lg-8\">
         <div class=\"media-body\">
             <h1 class=\"mt-0\">{{ program.title }}</h1>
             <p>{{ program.summary }}</p>
             <p>Categorie : {{ program.category.name }}</p>
         </div>
     </div>
+
+    <div class=\"col-lg-4\">
+        <img class=\"align-self-start mr-3\" src=\"{{program.poster}}\" alt=\"{{ program.title }} poster\">
+    </div>
+</div>
 
 
 {% endblock %}", "wild/show.html.twig", "/home/cyrille/Symfony/wild-series/templates/wild/show.html.twig");
