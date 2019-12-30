@@ -1,15 +1,17 @@
-{% extends '/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block titre %}
-<h2> Mes séries en cours</h2>
-{% endblock %}
-
-{% block header %}
-    {% include 'navbar.html.twig' %}
-{% endblock %}
+{% block title %}{{ slug }}{% endblock %}
 
 {% block body %}
-    <div class="col-12">
-        <p class="h2">{{slug}}</p>
+
+    <div class="media">
+        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+        <div class="media-body">
+            <h1 class="mt-0">{{ program.title }}</h1>
+            <p>{{ program.summary }}</p>
+            <p>Categorie : {{ program.category.name }}</p>
+        </div>
     </div>
+
+
 {% endblock %}

@@ -95,6 +95,7 @@ $catalogue = new MessageCatalogue('ja', array (
     'This value should be either negative or zero.' => '負の数、または0でなければなりません。',
     'This value is not a valid timezone.' => '有効なタイムゾーンではありません。',
     'This password has been leaked in a data breach, it must not be used. Please use another password.' => 'このパスワードは漏洩している為使用できません。',
+    'This value should be between {{ min }} and {{ max }}.' => '{{ min }}以上{{ max }}以下でなければなりません。',
     'This form should not contain extra fields.' => 'フィールドグループに追加のフィールドを含んではなりません。',
     'The uploaded file was too large. Please try to upload a smaller file.' => 'アップロードされたファイルが大きすぎます。小さなファイルで再度アップロードしてください。',
     'The CSRF token is invalid. Please try to resubmit the form.' => 'CSRFトークンが無効です、再送信してください。',

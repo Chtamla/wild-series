@@ -87,7 +87,7 @@
     <parameter key="debug.file_link_format">null</parameter>
     <parameter key="session.metadata.storage_key">_sf2_meta</parameter>
     <parameter key="session.storage.options" type="collection">
-      <parameter key="cache_limiter">0</parameter>
+      <parameter key="cache_limiter" type="string">0</parameter>
       <parameter key="cookie_secure">auto</parameter>
       <parameter key="cookie_httponly">true</parameter>
       <parameter key="cookie_samesite">lax</parameter>
@@ -321,14 +321,14 @@
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.WkgBPi_.App\Controller\DefaultController"/>
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\DefaultController"/>
       </call>
     </service>
     <service id="App\Controller\WildController" class="App\Controller\WildController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.WkgBPi_.App\Controller\WildController"/>
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\WildController"/>
       </call>
     </service>
     <service id="App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true">
@@ -451,6 +451,7 @@
         <argument key="debug.event_dispatcher" type="service" id="debug.event_dispatcher" on-invalid="ignore_uninitialized"/>
         <argument key="security.token_storage" type="service" id="security.token_storage" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="doctrine" type="service" id="doctrine" on-invalid="ignore_uninitialized"/>
         <argument key="form.type.entity" type="service" id="form.type.entity" on-invalid="ignore_uninitialized"/>
         <argument key="monolog.handler.main" type="service" id="monolog.handler.main" on-invalid="ignore_uninitialized"/>
         <argument key="monolog.handler.console" type="service" id="monolog.handler.console" on-invalid="ignore_uninitialized"/>
@@ -459,26 +460,70 @@
         <argument key="webpack_encore.entrypoint_lookup[_default]" type="service" id="webpack_encore.entrypoint_lookup[_default]" on-invalid="ignore_uninitialized"/>
       </argument>
       <argument type="collection">
-        <argument key="cache.app">reset</argument>
-        <argument key="cache.system">reset</argument>
-        <argument key="cache.validator">reset</argument>
-        <argument key="cache.serializer">reset</argument>
-        <argument key="cache.annotations">reset</argument>
-        <argument key="cache.property_info">reset</argument>
-        <argument key="cache.messenger.restart_workers_signal">reset</argument>
-        <argument key="form.choice_list_factory.cached">reset</argument>
-        <argument key="profiler">reset</argument>
-        <argument key="debug.validator">reset</argument>
-        <argument key="debug.stopwatch">reset</argument>
-        <argument key="debug.event_dispatcher">reset</argument>
-        <argument key="security.token_storage">disableUsageTracking</argument>
-        <argument key="cache.security_expression_language">reset</argument>
-        <argument key="form.type.entity">reset</argument>
-        <argument key="monolog.handler.main">reset</argument>
-        <argument key="monolog.handler.console">reset</argument>
-        <argument key="webpack_encore.tag_renderer">reset</argument>
-        <argument key="cache.webpack_encore">reset</argument>
-        <argument key="webpack_encore.entrypoint_lookup[_default]">reset</argument>
+        <argument key="cache.app" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="cache.system" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="cache.validator" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="cache.serializer" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="cache.annotations" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="cache.property_info" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="cache.messenger.restart_workers_signal" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="form.choice_list_factory.cached" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="profiler" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="debug.validator" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="debug.stopwatch" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="debug.event_dispatcher" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="security.token_storage" type="collection">
+          <argument>disableUsageTracking</argument>
+          <argument>setToken</argument>
+        </argument>
+        <argument key="cache.security_expression_language" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="doctrine" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="form.type.entity" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="monolog.handler.main" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="monolog.handler.console" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="webpack_encore.tag_renderer" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="cache.webpack_encore" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="webpack_encore.entrypoint_lookup[_default]" type="collection">
+          <argument>reset</argument>
+        </argument>
       </argument>
     </service>
     <service id="reverse_container" class="Symfony\Component\DependencyInjection\ReverseContainer" public="false">
@@ -512,22 +557,22 @@
         <argument>/_fragment</argument>
       </call>
     </service>
+    <service id=".2_~vqmV.jv" public="false">
+      <argument type="service" id="request_stack"/>
+      <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer" method="getAndCleanOutputBuffer"/>
+    </service>
     <service id=".1_~vqmV.jv" public="false">
       <argument type="service" id="request_stack"/>
-      <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\SerializerErrorRenderer" method="getPreferredFormat"/>
+      <argument>true</argument>
+      <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer" method="isDebug"/>
     </service>
     <service id="error_handler.error_renderer.html" class="Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer">
-      <argument>true</argument>
+      <argument type="service" id=".1_~vqmV.jv"/>
       <argument>UTF-8</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
       <argument>/home/cyrille/Symfony/wild-series</argument>
-      <argument type="service" id="request_stack"/>
+      <argument type="service" id=".2_~vqmV.jv"/>
       <argument type="service" id="monolog.logger" on-invalid="null"/>
-    </service>
-    <service id="error_handler.error_renderer.serializer" class="Symfony\Component\ErrorHandler\ErrorRenderer\SerializerErrorRenderer">
-      <argument type="service" id="serializer"/>
-      <argument type="service" id=".1_~vqmV.jv"/>
-      <argument type="service" id="twig.error_renderer.html"/>
     </service>
     <service id="console.error_listener" class="Symfony\Component\Console\EventListener\ErrorListener" public="false">
       <tag name="kernel.event_subscriber"/>
@@ -591,6 +636,9 @@
         <argument>cache.property_info</argument>
         <argument>cache.messenger.restart_workers_signal</argument>
         <argument>cache.security_expression_language</argument>
+        <argument>cache.doctrine.orm.default.metadata</argument>
+        <argument>cache.doctrine.orm.default.result</argument>
+        <argument>cache.doctrine.orm.default.query</argument>
         <argument>cache.webpack_encore</argument>
       </argument>
       <call method="setName">
@@ -956,6 +1004,9 @@
         <argument key="cache.property_info" type="service" id="cache.property_info" on-invalid="ignore_uninitialized"/>
         <argument key="cache.messenger.restart_workers_signal" type="service" id="cache.messenger.restart_workers_signal" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.doctrine.orm.default.metadata" type="service" id="cache.doctrine.orm.default.metadata" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.doctrine.orm.default.result" type="service" id="cache.doctrine.orm.default.result" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.doctrine.orm.default.query" type="service" id="cache.doctrine.orm.default.query" on-invalid="ignore_uninitialized"/>
         <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
@@ -1262,6 +1313,12 @@
           <argument type="service" id="doctrine.orm.validator_initializer"/>
         </argument>
       </call>
+      <call method="addLoader">
+        <argument type="service" id="validator.property_info_loader"/>
+      </call>
+      <call method="addLoader">
+        <argument type="service" id="doctrine.orm.default_entity_manager.validator_loader"/>
+      </call>
       <factory class="Symfony\Component\Validator\Validation" method="createValidatorBuilder"/>
     </service>
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer" public="false">
@@ -1293,6 +1350,13 @@
       <argument type="service" id=".debug.http_client" on-invalid="null"/>
       <argument>UTF-8</argument>
       <argument>true</argument>
+      <argument>null</argument>
+    </service>
+    <service id="validator.property_info_loader" class="Symfony\Component\Validator\Mapping\Loader\PropertyInfoLoader" public="false">
+      <tag name="validator.auto_mapper"/>
+      <argument type="service" id="property_info"/>
+      <argument type="service" id="property_info"/>
+      <argument type="service" id="property_info"/>
       <argument>null</argument>
     </service>
     <service id="translator.default" class="Symfony\Bundle\FrameworkBundle\Translation\Translator" public="false">
@@ -2012,6 +2076,18 @@
         <argument type="service" id="cache.security_expression_language"/>
       </call>
       <call method="addInstance">
+        <argument>cache.doctrine.orm.default.metadata</argument>
+        <argument type="service" id="cache.doctrine.orm.default.metadata"/>
+      </call>
+      <call method="addInstance">
+        <argument>cache.doctrine.orm.default.result</argument>
+        <argument type="service" id="cache.doctrine.orm.default.result"/>
+      </call>
+      <call method="addInstance">
+        <argument>cache.doctrine.orm.default.query</argument>
+        <argument type="service" id="cache.doctrine.orm.default.query"/>
+      </call>
+      <call method="addInstance">
         <argument>cache.webpack_encore</argument>
         <argument type="service" id="cache.webpack_encore"/>
       </call>
@@ -2300,14 +2376,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -2707,7 +2775,16 @@
       <argument>%env(base64:default::SYMFONY_DECRYPTION_SECRET)%</argument>
     </service>
     <service id="secrets.local_vault" class="Symfony\Bundle\FrameworkBundle\Secrets\DotenvVault">
-      <argument>/home/cyrille/Symfony/wild-series/.env.local</argument>
+      <argument>/home/cyrille/Symfony/wild-series/.env.dev.local</argument>
+    </service>
+    <service id=".2_~sIQgxCv" public="false">
+      <argument type="service" id="request_stack"/>
+      <argument>true</argument>
+      <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer" method="isDebug"/>
+    </service>
+    <service id=".1_~sIQgxCv" public="false">
+      <argument type="service" id="request_stack"/>
+      <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\SerializerErrorRenderer" method="getPreferredFormat"/>
     </service>
     <service id="serializer" class="Symfony\Component\Serializer\Serializer" public="true">
       <argument type="collection">
@@ -2715,6 +2792,7 @@
         <argument type="service" id="serializer.normalizer.json_serializable"/>
         <argument type="service" id="serializer.normalizer.datetime"/>
         <argument type="service" id="serializer.normalizer.constraint_violation_list"/>
+        <argument type="service" id="serializer.normalizer.datetimezone"/>
         <argument type="service" id="serializer.normalizer.dateinterval"/>
         <argument type="service" id="serializer.normalizer.data_uri"/>
         <argument type="service" id="serializer.denormalizer.array"/>
@@ -2734,6 +2812,9 @@
       <tag name="serializer.normalizer" priority="-915"/>
       <argument type="collection"/>
       <argument type="service" id="serializer.name_converter.metadata_aware"/>
+    </service>
+    <service id="serializer.normalizer.datetimezone" class="Symfony\Component\Serializer\Normalizer\DateTimeZoneNormalizer" public="false">
+      <tag name="serializer.normalizer" priority="-915"/>
     </service>
     <service id="serializer.normalizer.dateinterval" class="Symfony\Component\Serializer\Normalizer\DateIntervalNormalizer" public="false">
       <tag name="serializer.normalizer" priority="-915"/>
@@ -2813,6 +2894,12 @@
     <service id="property_info.serializer_extractor" class="Symfony\Component\PropertyInfo\Extractor\SerializerExtractor" public="false">
       <tag name="property_info.list_extractor" priority="-999"/>
       <argument type="service" id="serializer.mapping.class_metadata_factory"/>
+    </service>
+    <service id="error_handler.error_renderer.serializer" class="Symfony\Component\ErrorHandler\ErrorRenderer\SerializerErrorRenderer" public="false">
+      <argument type="service" id="serializer"/>
+      <argument type="service" id=".1_~sIQgxCv"/>
+      <argument type="service" id="twig.error_renderer.html"/>
+      <argument type="service" id=".2_~sIQgxCv"/>
     </service>
     <service id="property_info" class="Symfony\Component\PropertyInfo\PropertyInfoExtractor" public="false">
       <argument type="iterator">
@@ -2938,9 +3025,7 @@
       <argument type="service" id="security.exception_listener"/>
       <argument></argument>
       <argument></argument>
-      <argument type="service" id="security.access_listener"/>
       <argument type="service" id="security.untracked_token_storage"/>
-      <argument type="service" id="security.access_map"/>
     </service>
     <service id="security.firewall.config" class="Symfony\Bundle\SecurityBundle\Security\FirewallConfig" public="false" abstract="true">
       <argument></argument>
@@ -2983,8 +3068,8 @@
     <service id="security.http_utils" class="Symfony\Component\Security\Http\HttpUtils" public="false">
       <argument type="service" id="router.default" on-invalid="null"/>
       <argument type="service" id="router.default" on-invalid="null"/>
-      <argument>{^https?://%s$}i</argument>
-      <argument>{^https://%s$}i</argument>
+      <argument>{^https?://%%s$}i</argument>
+      <argument>{^https://%%s$}i</argument>
     </service>
     <service id="security.validator.user_password" class="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator" public="false">
       <tag name="validator.constraint_validator" alias="security.validator.user_password"/>
@@ -3405,13 +3490,12 @@
         <argument type="service" id="security.channel_listener"/>
         <argument type="service" id="security.context_listener.0"/>
         <argument type="service" id="security.authentication.listener.anonymous.main"/>
+        <argument type="service" id="security.access_listener"/>
       </argument>
       <argument type="service" id="security.exception_listener.main"/>
       <argument>null</argument>
       <argument type="service" id="security.firewall.map.config.main"/>
-      <argument type="service" id="security.access_listener"/>
       <argument type="service" id="security.untracked_token_storage"/>
-      <argument type="service" id="security.access_map"/>
     </service>
     <service id=".service_locator.iuGr.fa" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -3845,6 +3929,7 @@
     </service>
     <service id="doctrine.dbal.connection.configuration" class="Doctrine\DBAL\Configuration" public="false" abstract="true"/>
     <service id="doctrine" class="Doctrine\Bundle\DoctrineBundle\Registry" public="true">
+      <tag name="kernel.reset" method="reset"/>
       <argument type="service" id="service_container"/>
       <argument>%doctrine.connections%</argument>
       <argument>%doctrine.entity_managers%</argument>
@@ -4072,13 +4157,13 @@
         </argument>
       </call>
       <call method="setMetadataCacheImpl">
-        <argument type="service" id="doctrine.orm.cache.pool.cache.system"/>
+        <argument type="service" id="doctrine.orm.cache.provider.cache.doctrine.orm.default.metadata"/>
       </call>
       <call method="setQueryCacheImpl">
-        <argument type="service" id="doctrine.orm.cache.pool.cache.app"/>
+        <argument type="service" id="doctrine.orm.cache.provider.cache.doctrine.orm.default.query"/>
       </call>
       <call method="setResultCacheImpl">
-        <argument type="service" id="doctrine.orm.cache.pool.cache.app"/>
+        <argument type="service" id="doctrine.orm.cache.provider.cache.doctrine.orm.default.result"/>
       </call>
       <call method="setMetadataDriverImpl">
         <argument type="service" id="doctrine.orm.default_metadata_driver"/>
@@ -4123,11 +4208,26 @@
         <argument>App\Entity</argument>
       </call>
     </service>
-    <service id="doctrine.orm.cache.pool.cache.system" class="Symfony\Component\Cache\DoctrineProvider">
-      <argument type="service" id="cache.system"/>
+    <service id="cache.doctrine.orm.default.metadata" class="Symfony\Component\Cache\Adapter\TraceableAdapter" public="true">
+      <tag name="cache.pool"/>
+      <argument type="service" id="cache.doctrine.orm.default.metadata.recorder_inner"/>
     </service>
-    <service id="doctrine.orm.cache.pool.cache.app" class="Symfony\Component\Cache\DoctrineProvider">
-      <argument type="service" id="cache.app"/>
+    <service id="doctrine.orm.cache.provider.cache.doctrine.orm.default.metadata" class="Symfony\Component\Cache\DoctrineProvider">
+      <argument type="service" id="cache.doctrine.orm.default.metadata"/>
+    </service>
+    <service id="cache.doctrine.orm.default.result" class="Symfony\Component\Cache\Adapter\TraceableAdapter" public="true">
+      <tag name="cache.pool"/>
+      <argument type="service" id="cache.doctrine.orm.default.result.recorder_inner"/>
+    </service>
+    <service id="doctrine.orm.cache.provider.cache.doctrine.orm.default.result" class="Symfony\Component\Cache\DoctrineProvider">
+      <argument type="service" id="cache.doctrine.orm.default.result"/>
+    </service>
+    <service id="cache.doctrine.orm.default.query" class="Symfony\Component\Cache\Adapter\TraceableAdapter" public="true">
+      <tag name="cache.pool"/>
+      <argument type="service" id="cache.doctrine.orm.default.query.recorder_inner"/>
+    </service>
+    <service id="doctrine.orm.cache.provider.cache.doctrine.orm.default.query" class="Symfony\Component\Cache\DoctrineProvider">
+      <argument type="service" id="cache.doctrine.orm.default.query"/>
     </service>
     <service id="doctrine.orm.default_entity_listener_resolver" class="Doctrine\Bundle\DoctrineBundle\Mapping\ContainerEntityListenerResolver">
       <argument type="service" id="service_container"/>
@@ -4150,6 +4250,11 @@
       <tag name="property_info.type_extractor" priority="-999"/>
       <tag name="property_info.access_extractor" priority="-999"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="doctrine.orm.default_entity_manager.validator_loader" class="Symfony\Bridge\Doctrine\Validator\DoctrineLoader">
+      <tag name="validator.auto_mapper" priority="-100"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>null</argument>
     </service>
     <service id="doctrine_migrations.diff_command" class="Doctrine\Bundle\MigrationsBundle\Command\MigrationsDiffDoctrineCommand">
       <tag name="console.command"/>
@@ -5051,7 +5156,7 @@
         <argument key="translation.loader.yml" type="service" id="translation.loader.yml"/>
       </argument>
     </service>
-    <service id=".service_locator.WkgBPi_" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.vdmMuyE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="doctrine" type="service" id="doctrine" on-invalid="ignore"/>
@@ -5068,17 +5173,17 @@
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.WkgBPi_.App\Controller\DefaultController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.vdmMuyE.App\Controller\DefaultController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\DefaultController"/>
       <argument>App\Controller\DefaultController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.WkgBPi_" method="withContext"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
-    <service id=".service_locator.WkgBPi_.App\Controller\WildController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.vdmMuyE.App\Controller\WildController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\WildController"/>
       <argument>App\Controller\WildController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.WkgBPi_" method="withContext"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
     <service id=".service_locator.XSes1R5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -5127,6 +5232,40 @@
       <argument>twig.template_cache_warmer</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.o9nGMXB" method="withContext"/>
+    </service>
+    <service id=".service_locator.wnlveDj" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="reverse_container" type="service" id="reverse_container" on-invalid="ignore_uninitialized"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Bppmeg3" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="initialized_session" type="service" id="session" on-invalid="ignore_uninitialized"/>
+        <argument key="request_stack" type="service" id="request_stack"/>
+        <argument key="session" type="service" id="session" on-invalid="ignore"/>
+        <argument key="session_storage" type="service" id="session.storage.native" on-invalid="ignore"/>
+      </argument>
+    </service>
+    <service id=".service_locator.XwZNkPh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="kernel" type="service" id="kernel"/>
+      </argument>
+    </service>
+    <service id=".service_locator.XjnY8xG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.6zQlgQt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="security.authorization_checker" type="service" id="security.authorization_checker"/>
+        <argument key="security.token_storage" type="service" id="security.token_storage"/>
+      </argument>
     </service>
     <service id="debug.validator.inner" class="Symfony\Component\Validator\Validator\ValidatorInterface" public="false">
       <factory service="validator.builder" method="getValidator"/>
@@ -5191,40 +5330,6 @@
         <argument type="service" id="monolog.logger.http_client" on-invalid="ignore"/>
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
-    </service>
-    <service id=".service_locator.wnlveDj" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="reverse_container" type="service" id="reverse_container" on-invalid="ignore_uninitialized"/>
-      </argument>
-    </service>
-    <service id=".service_locator.Bppmeg3" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="initialized_session" type="service" id="session" on-invalid="ignore_uninitialized"/>
-        <argument key="request_stack" type="service" id="request_stack"/>
-        <argument key="session" type="service" id="session" on-invalid="ignore"/>
-        <argument key="session_storage" type="service" id="session.storage.native" on-invalid="ignore"/>
-      </argument>
-    </service>
-    <service id=".service_locator.XwZNkPh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="kernel" type="service" id="kernel"/>
-      </argument>
-    </service>
-    <service id=".service_locator.XjnY8xG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="session" type="service" id="session"/>
-      </argument>
-    </service>
-    <service id=".service_locator.6zQlgQt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="security.authorization_checker" type="service" id="security.authorization_checker"/>
-        <argument key="security.token_storage" type="service" id="security.token_storage"/>
-      </argument>
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.YQT1s2V"/>
@@ -5458,6 +5563,9 @@
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
+    <service id="cache.doctrine.orm.default.metadata.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter" public="false"/>
+    <service id="cache.doctrine.orm.default.result.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter" public="false"/>
+    <service id="cache.doctrine.orm.default.query.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter" public="false"/>
     <service id="cache.webpack_encore.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
       <argument>dmNM2RGJpC</argument>
       <argument>0</argument>
@@ -5494,7 +5602,6 @@
     <service id="Symfony\Component\HttpKernel\Config\FileLocator" alias="file_locator" public="false"/>
     <service id="Symfony\Component\DependencyInjection\ReverseContainer" alias="reverse_container" public="false"/>
     <service id="error_renderer.html" alias="twig.error_renderer.html"/>
-    <service id="error_renderer.serializer" alias="error_handler.error_renderer.serializer"/>
     <service id="error_renderer" alias="error_handler.error_renderer.serializer" public="false"/>
     <service id="Psr\Container\ContainerInterface $parameterBag" alias="parameter_bag"/>
     <service id="cache.app_clearer" alias="cache.default_clearer" public="true"/>
@@ -5554,6 +5661,7 @@
     <service id="Symfony\Component\Serializer\Mapping\ClassDiscriminatorResolverInterface" alias="serializer.mapping.class_discriminator_resolver" public="false"/>
     <service id="Symfony\Component\Serializer\Normalizer\ObjectNormalizer" alias="serializer.normalizer.object" public="false"/>
     <service id="Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactoryInterface" alias="serializer.mapping.class_metadata_factory" public="false"/>
+    <service id="error_renderer.serializer" alias="error_handler.error_renderer.serializer" public="false"/>
     <service id="Symfony\Component\PropertyInfo\PropertyAccessExtractorInterface" alias="property_info" public="false"/>
     <service id="Symfony\Component\PropertyInfo\PropertyDescriptionExtractorInterface" alias="property_info" public="false"/>
     <service id="Symfony\Component\PropertyInfo\PropertyInfoExtractorInterface" alias="property_info" public="false"/>
@@ -5586,23 +5694,24 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default" public="false"/>
     <service id="Doctrine\DBAL\Driver\Connection" alias="doctrine.dbal.default_connection" public="false"/>
     <service id="Doctrine\DBAL\Connection" alias="doctrine.dbal.default_connection" public="false"/>
+    <service id="Doctrine\Persistence\ManagerRegistry" alias="doctrine" public="false"/>
     <service id="Doctrine\Common\Persistence\ManagerRegistry" alias="doctrine" public="false"/>
     <service id="database_connection" alias="doctrine.dbal.default_connection" public="true"/>
     <service id="doctrine.dbal.event_manager" alias="doctrine.dbal.default_connection.event_manager" public="false"/>
     <service id="Doctrine\ORM\EntityManagerInterface" alias="doctrine.orm.default_entity_manager" public="false"/>
     <service id="doctrine.orm.metadata.annotation_reader" alias="annotations.cached_reader" public="false"/>
     <service id="doctrine.orm.entity_manager" alias="doctrine.orm.default_entity_manager" public="true"/>
-    <service id="doctrine.orm.default_metadata_cache" alias="doctrine.orm.cache.pool.cache.system" public="false"/>
-    <service id="doctrine.orm.default_result_cache" alias="doctrine.orm.cache.pool.cache.app" public="false"/>
-    <service id="doctrine.orm.default_query_cache" alias="doctrine.orm.cache.pool.cache.app" public="false"/>
+    <service id="doctrine.orm.default_metadata_cache" alias="doctrine.orm.cache.provider.cache.doctrine.orm.default.metadata" public="false"/>
+    <service id="doctrine.orm.default_result_cache" alias="doctrine.orm.cache.provider.cache.doctrine.orm.default.result" public="false"/>
+    <service id="doctrine.orm.default_query_cache" alias="doctrine.orm.cache.provider.cache.doctrine.orm.default.query" public="false"/>
     <service id="doctrine.orm.default_entity_manager.event_manager" alias="doctrine.dbal.default_connection.event_manager" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" alias="webpack_encore.entrypoint_lookup_collection" public="false"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.I3K77mT"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.I3K77mT"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -5616,6 +5725,8 @@
     <service id="Psr\Log\LoggerInterface $securityLogger" alias="monolog.logger.security"/>
     <service id="Psr\Log\LoggerInterface $doctrineLogger" alias="monolog.logger.doctrine"/>
     <service id="Psr\Log\LoggerInterface $debugLogger" alias="monolog.logger.debug"/>
+    <service id=".service_locator.ISjGRTp" alias=".1_ServiceLocator~uJtpjUp" public="false"/>
+    <service id=".service_locator.tHpW6v3" alias=".service_locator.Y7gDuDN" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="translator.data_collector.inner" alias="translator.default" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
@@ -5633,7 +5744,5 @@
     <service id="argument_resolver.variadic" alias="debug.argument_resolver.variadic" public="false"/>
     <service id="argument_resolver.not_tagged_controller" alias="debug.argument_resolver.not_tagged_controller" public="false"/>
     <service id="http_client" alias=".debug.http_client"/>
-    <service id=".service_locator.ISjGRTp" alias=".1_ServiceLocator~uJtpjUp" public="false"/>
-    <service id=".service_locator.tHpW6v3" alias=".service_locator.Y7gDuDN" public="false"/>
   </services>
 </container>

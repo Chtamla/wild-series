@@ -6,9 +6,21 @@
         {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
     </head>
     <body>
-        {% block titre %}{% endblock %}
-        {% block header %}{% endblock %}
-        {% block body %}{% endblock %}
+    <div class="container-fluid navbar">
+        <div class="col-2">
+            {% block navigation %}
+                {% include 'navbar.html.twig' %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="container-fluid containt">
+        <div class="col-10">
+            {% block titre %}{% endblock %}
+            {% block header %}{% endblock %}
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+
         {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
     </body>
 </html>
