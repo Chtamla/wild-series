@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ episode.title }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{episode.title}}</h1>
+    <div class="col-12">
+        <div class="card">
+            <img src="http://placehold.it/800x600/grey">
+            <div class="card-body">
+                <p>{{episode.synopsis}}</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="{{path('wild_episodes',{'id':episode.seasonId.id})}}">
+        Retour aux episodes
+    </a>
+{% endblock %}

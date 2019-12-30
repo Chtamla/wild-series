@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Programs
+{% endblock %}
+
+{% block body %}
+    <div class="col-12">
+        <p class="h1">Toutes les programs:</p>
+    </div>
+    {% for program in programs %}
+        <div class="col-12">
+            <h2>{{loop.index}}
+                /
+                <a href="{{path('wild_program',{'id':program.id})}}">{{program.title}}</a></h2>
+        </div>
+    {% else %}
+        Aucune program trouvée
+    {% endfor %}
+
+    <a href="{{path('app_index')}}">
+        Retour à l'accueil
+    </a>
+{% endblock %}

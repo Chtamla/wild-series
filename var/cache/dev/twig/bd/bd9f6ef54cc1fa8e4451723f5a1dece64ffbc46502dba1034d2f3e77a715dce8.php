@@ -48,10 +48,10 @@ class __TwigTemplate_f00b55c619caf1d0650cb9810ade32c23c1bdf9c2335f38d646de097204
         <a href=\"";
         // line 6
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_categories");
-        echo "\">Catégorie</a>
+        echo "\">Catégories</a>
         <a href=\"";
         // line 7
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_show", ["slug" => "walking-dead"]);
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_show", ["slug" => "american-horror-story"]);
         echo "\">Mes séries favorites</a>
 
     </div>
@@ -87,8 +87,8 @@ class __TwigTemplate_f00b55c619caf1d0650cb9810ade32c23c1bdf9c2335f38d646de097204
     <div id=\"mySidenav\" class=\"sidenav\">
         <a href=\"#\">Mon profil</a>
         <a href=\"#\">Recherche</a>
-        <a href=\"{{ path(\"wild_categories\") }}\">Catégorie</a>
-        <a href=\"{{ path('wild_show', { 'slug': \"walking-dead\" }) }}\">Mes séries favorites</a>
+        <a href=\"{{ path(\"wild_categories\") }}\">Catégories</a>
+        <a href=\"{{ path('wild_show', { 'slug': \"american-horror-story\" }) }}\">Mes séries favorites</a>
 
     </div>
 </div>

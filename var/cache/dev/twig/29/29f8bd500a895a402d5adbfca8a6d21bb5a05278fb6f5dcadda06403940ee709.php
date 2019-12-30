@@ -85,14 +85,17 @@ class __TwigTemplate_62147426eebb2b9db2b3a1d91bf462f1782ad373953d0444f24dd5c7818
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Toutes les séries de la table ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 6, $this->source); })()), "name", [], "any", false, false, false, 6), "html", null, true);
-        echo ":</h1>
-    ";
+        echo "    <div class=\"col-12\">
+        <p>";
         // line 7
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 7, $this->source); })()), "name", [], "any", false, false, false, 7), "html", null, true);
+        echo ": les programmes de la catégorie</p>
+    </div>
+    <div class=\"row\">
+       ";
+        // line 10
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["programs"]) || array_key_exists("programs", $context) ? $context["programs"] : (function () { throw new RuntimeError('Variable "programs" does not exist.', 7, $this->source); })()));
-        $context['_iterated'] = false;
+        $context['_seq'] = twig_ensure_traversable((isset($context["programs"]) || array_key_exists("programs", $context) ? $context["programs"] : (function () { throw new RuntimeError('Variable "programs" does not exist.', 10, $this->source); })()));
         $context['loop'] = [
           'parent' => $context['_parent'],
           'index0' => 0,
@@ -107,29 +110,42 @@ class __TwigTemplate_62147426eebb2b9db2b3a1d91bf462f1782ad373953d0444f24dd5c7818
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["program"]) {
-            // line 8
-            echo "        <div>
-            <h2>";
-            // line 9
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 9), "html", null, true);
-            echo "
-                /
-                ";
             // line 11
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 11), "html", null, true);
-            echo "
-                - Catégorie :
-                ";
+            echo "        <div class=\"col-12\">
+            <div class=\"card\">
+                 <a href=\"";
             // line 13
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["program"], "category", [], "any", false, false, false, 13), "name", [], "any", false, false, false, 13), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_program", ["id" => twig_get_attribute($this->env, $this->source, $context["program"], "id", [], "any", false, false, false, 13)]), "html", null, true);
+            echo "\"><img src=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "poster", [], "any", false, false, false, 13), "html", null, true);
+            echo "\"></a>
+
+                    <div class=\"card-body\">
+                        <h2>";
+            // line 16
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 16), "html", null, true);
+            echo "
+                            /
+                            ";
+            // line 18
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "title", [], "any", false, false, false, 18), "html", null, true);
+            echo "
+                            - Catégorie :
+                            ";
+            // line 20
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["program"], "category", [], "any", false, false, false, 20), "name", [], "any", false, false, false, 20), "html", null, true);
             echo "</h2>
-            <p>";
-            // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "summary", [], "any", false, false, false, 14), "html", null, true);
-            echo "</p>
+
+                        <p>";
+            // line 22
+            echo twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, $context["program"], "summary", [], "any", false, false, false, 22), 1, 100), "html", null, true);
+            echo " <a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_program", ["id" => twig_get_attribute($this->env, $this->source, $context["program"], "id", [], "any", false, false, false, 22)]), "html", null, true);
+            echo "\"> Lire la suite</a> </p>
+                    </div>
+            </div>
         </div>
-    ";
-            $context['_iterated'] = true;
+       ";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
             $context['loop']['first'] = false;
@@ -139,20 +155,12 @@ class __TwigTemplate_62147426eebb2b9db2b3a1d91bf462f1782ad373953d0444f24dd5c7818
                 $context['loop']['last'] = 0 === $context['loop']['revindex0'];
             }
         }
-        if (!$context['_iterated']) {
-            // line 17
-            echo "        Aucune série trouvée
-    ";
-        }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['program'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 19
-        echo "    <a href=\"";
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_index");
-        echo "\">
-        Retour à l'accueil
-    </a>
+        // line 27
+        echo "    </div>
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -174,7 +182,7 @@ class __TwigTemplate_62147426eebb2b9db2b3a1d91bf462f1782ad373953d0444f24dd5c7818
 
     public function getDebugInfo()
     {
-        return array (  151 => 19,  144 => 17,  128 => 14,  124 => 13,  119 => 11,  114 => 9,  111 => 8,  93 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  162 => 27,  141 => 22,  136 => 20,  131 => 18,  126 => 16,  118 => 13,  114 => 11,  97 => 10,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -184,22 +192,29 @@ class __TwigTemplate_62147426eebb2b9db2b3a1d91bf462f1782ad373953d0444f24dd5c7818
 {% block title %}{{ category.name }}{% endblock %}
 
 {% block body %}
-    <h1>Toutes les séries de la table {{category.name}}:</h1>
-    {% for program in programs %}
-        <div>
-            <h2>{{loop.index}}
-                /
-                {{program.title}}
-                - Catégorie :
-                {{program.category.name}}</h2>
-            <p>{{program.summary}}</p>
+    <div class=\"col-12\">
+        <p>{{category.name}}: les programmes de la catégorie</p>
+    </div>
+    <div class=\"row\">
+       {% for program in programs %}
+        <div class=\"col-12\">
+            <div class=\"card\">
+                 <a href=\"{{path('wild_program', {'id': program.id})}}\"><img src=\"{{program.poster}}\"></a>
+
+                    <div class=\"card-body\">
+                        <h2>{{loop.index}}
+                            /
+                            {{program.title}}
+                            - Catégorie :
+                            {{program.category.name}}</h2>
+
+                        <p>{{program.summary | slice(1,100)}} <a href=\"{{path('wild_program', {'id': program.id})}}\"> Lire la suite</a> </p>
+                    </div>
+            </div>
         </div>
-    {% else %}
-        Aucune série trouvée
-    {% endfor %}
-    <a href=\"{{path('app_index')}}\">
-        Retour à l'accueil
-    </a>
+       {% endfor %}
+    </div>
+
 {% endblock %}", "wild/category.html.twig", "/home/cyrille/Symfony/wild-series/templates/wild/category.html.twig");
     }
 }

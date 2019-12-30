@@ -26,7 +26,6 @@ class __TwigTemplate_dffc0fc3608d3da8a5d4fd4660a870ab3c138a42864fc21d051ec284702
 
         $this->blocks = [
             'titre' => [$this, 'block_titre'],
-            'header' => [$this, 'block_header'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -77,28 +76,7 @@ class __TwigTemplate_dffc0fc3608d3da8a5d4fd4660a870ab3c138a42864fc21d051ec284702
 
     }
 
-    // line 7
-    public function block_header($context, array $blocks = [])
-    {
-        $macros = $this->macros;
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
-
-        // line 8
-        echo "    ";
-        $this->loadTemplate("navbar.html.twig", "home.html.twig", 8)->display($context);
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 11
+    // line 8
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -108,22 +86,8 @@ class __TwigTemplate_dffc0fc3608d3da8a5d4fd4660a870ab3c138a42864fc21d051ec284702
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 12
+        // line 9
         echo "    ";
-        // line 13
-        echo "    <a href=\"";
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_show", ["slug" => "walking-dead"]);
-        echo "\">
-        Testing show() method from WildController with a real program s slug.
-    </a>
-    <br>
-    <a href=\"";
-        // line 17
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("wild_index");
-        echo "\">
-        Testing index() method from WildController to view all programs.
-    </a>
-";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -144,7 +108,7 @@ class __TwigTemplate_dffc0fc3608d3da8a5d4fd4660a870ab3c138a42864fc21d051ec284702
 
     public function getDebugInfo()
     {
-        return array (  122 => 17,  114 => 13,  112 => 12,  102 => 11,  91 => 8,  81 => 7,  70 => 4,  60 => 3,  37 => 1,);
+        return array (  90 => 9,  80 => 8,  69 => 4,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -155,19 +119,16 @@ class __TwigTemplate_dffc0fc3608d3da8a5d4fd4660a870ab3c138a42864fc21d051ec284702
     <h2>Bienvenue</h2>
 {% endblock %}
 
-{% block header %}
-    {% include 'navbar.html.twig' %}
-{% endblock %}
 
 {% block body %}
     {# templates/index.html.twig #}
-    <a href=\"{{ path('wild_show', { 'slug': \"walking-dead\" }) }}\">
-        Testing show() method from WildController with a real program s slug.
-    </a>
-    <br>
-    <a href=\"{{ path('wild_index') }}\">
-        Testing index() method from WildController to view all programs.
-    </a>
+{#    <a href=\"{{ path('wild_show', { 'slug': \"walking-dead\" }) }}\">#}
+{#        Testing show() method from WildController with a real program s slug.#}
+{#    </a>#}
+{#    <br>#}
+{#    <a href=\"{{ path('wild_index') }}\">#}
+{#        Testing index() method from WildController to view all programs.#}
+{#    </a>#}
 {% endblock %}", "home.html.twig", "/home/cyrille/Symfony/wild-series/templates/home.html.twig");
     }
 }
