@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block title %}Episodes
+{% endblock %}
+
+{% block body %}
+    <div class="col-12">
+        <p class="h1">Episodes de la saison:</p>
+    </div>
+    {% for episode in episodes %}
+        <div class="align-content-center col-12">
+            <div class="card">
+                <a href="/wild/episode/{{episode.id}}"></a>
+                <div class="card-body">
+                    <h2>{{loop.index}}
+                        /
+                        <a href="/wild/episode/{{episode.id}}">{{episode.title}}</a></h2>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        Aucun épisode trouvée
+    {% endfor %}
+
+{% endblock %}

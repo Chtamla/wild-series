@@ -86,7 +86,7 @@ class __TwigTemplate_b327fb81debedeec83ab0894a7b6a9621053bae8884c71a2150d67a50b4
 
         // line 6
         echo "
-    <div class=\"media\">
+    <div class=\"col-10\">
         <img class=\"align-self-start mr-3\" src=\"";
         // line 8
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["program"]) || array_key_exists("program", $context) ? $context["program"] : (function () { throw new RuntimeError('Variable "program" does not exist.', 8, $this->source); })()), "poster", [], "any", false, false, false, 8), "html", null, true);
@@ -142,7 +142,7 @@ class __TwigTemplate_b327fb81debedeec83ab0894a7b6a9621053bae8884c71a2150d67a50b4
 
 {% block body %}
 
-    <div class=\"media\">
+    <div class=\"col-10\">
         <img class=\"align-self-start mr-3\" src=\"{{program.poster}}\" alt=\"{{ program.title }} poster\">
         <div class=\"media-body\">
             <h1 class=\"mt-0\">{{ program.title }}</h1>

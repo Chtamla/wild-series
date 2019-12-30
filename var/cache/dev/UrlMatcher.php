@@ -15,6 +15,7 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_index', '_controller' => 'App\\Controller\\DefaultController::index'], null, null, null, false, false, null]],
         '/wild/categories' => [[['_route' => 'wild_categories', '_controller' => 'App\\Controller\\WildController::categories'], null, null, null, false, false, null]],
+        '/wild/programs' => [[['_route' => 'wild_programs', '_controller' => 'App\\Controller\\WildController::programs'], null, null, null, false, false, null]],
         '/wild' => [[['_route' => 'wild_index', '_controller' => 'App\\Controller\\WildController::index'], null, null, null, true, false, null]],
     ],
     [ // $regexpList
@@ -37,6 +38,11 @@ return [
                 .'|/wild/(?'
                     .'|show(?:/([a-z0-9-]+))?(*:200)'
                     .'|category(?:/([a-z0-9-]+))?(*:234)'
+                    .'|program/([^/]++)(*:258)'
+                    .'|episode(?'
+                        .'|s/([^/]++)(*:286)'
+                        .'|/([^/]++)(*:303)'
+                    .')'
                 .')'
             .')/?$}sD',
     ],
@@ -49,8 +55,11 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         200 => [[['_route' => 'wild_show', 'slug' => 'Aucune série sélectionnée, veuillez choisir une série', '_controller' => 'App\\Controller\\WildController::show'], ['slug'], null, null, false, true, null]],
-        234 => [
-            [['_route' => 'show_category', 'categoryName' => '0', '_controller' => 'App\\Controller\\WildController::showByCategory'], ['categoryName'], null, null, false, true, null],
+        234 => [[['_route' => 'show_category', 'categoryName' => '0', '_controller' => 'App\\Controller\\WildController::showByCategory'], ['categoryName'], null, null, false, true, null]],
+        258 => [[['_route' => 'wild_program', '_controller' => 'App\\Controller\\WildController::showByProgram'], ['id'], null, null, false, true, null]],
+        286 => [[['_route' => 'wild_episodes', '_controller' => 'App\\Controller\\WildController::episodes'], ['id'], null, null, false, true, null]],
+        303 => [
+            [['_route' => 'wild_episode', '_controller' => 'App\\Controller\\WildController::episode'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
